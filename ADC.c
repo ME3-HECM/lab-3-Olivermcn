@@ -19,6 +19,7 @@ void ADC_init(void)
     ADCON0bits.ADCS = 1; // Use internal Fast RC (FRC) oscillator as clock source for conversion
     ADCON0bits.ADON = 1; // Enable ADC
 }
+
 unsigned int ADC_getval(void)
 {
     unsigned int tmpval;

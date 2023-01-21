@@ -7,7 +7,8 @@
 ************************************/
 void Interrupts_init(void)
 {
-	// turn on global interrupts, peripheral interrupts and the interrupt source 
+	PIE0bits.INT0IE=1; 	//enable interrupt source INT0
+    INTCONbits.GIE=1; 	//turn on interrupts globally (when this is off, all interrupts are deactivated) 
 	// It's a good idea to turn on global interrupts last, once all other interrupt configuration is done.
 }
 
@@ -17,6 +18,13 @@ void Interrupts_init(void)
 ************************************/
 void __interrupt(high_priority) HighISR()
 {
+    if(PIR0bits.INT0IF){ 		//check the interrupt source
+	// setup pin for output (connected to LED)
+    LATHbits.LATH3=0;   //set initial output state
+    TRISHbits.TRISH3=0; //set TRIS value for pin (output);
+    LATHbits.LATH3 = !LATHbits.LATH3; //toggle LED
+	PIR0bits.INT0IF=0; 						//clear the interrupt flag!
+	}
 	//add your ISR code here i.e. check the flag, do something (i.e. toggle an LED), clear the flag...
 }
 

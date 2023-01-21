@@ -17,6 +17,8 @@ void main(void) {
 	//call your initialisation functions to set up the hardware modules
 
     while (1) {
-		
+		DAC_init();
+        Comp1_init();
+        void Interrupts_init();
     }
 }

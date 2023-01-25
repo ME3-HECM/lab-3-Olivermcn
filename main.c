@@ -15,9 +15,19 @@
 
 void main(void) {
 	//call your initialisation functions to set up the hardware modules
+    // setup pin for output (connected to LED)
+    LATDbits.LATD7=0;   //set initial output state
+    TRISDbits.TRISD7=0; //set TRIS value for pin (output)
     DAC_init();
     Comp1_init();
     Interrupts_init();
     while (1) {
+        Sleep();
+        if(!STATUSbits.PD)//check if in power down mode
+        {   
+        __delay_ms(50);//delay toggling the LED
+        LATDbits.LATD7 = !LATDbits.LATD7; //toggle LED
+        }
+        
     }
 }

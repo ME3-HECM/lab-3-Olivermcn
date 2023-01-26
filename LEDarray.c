@@ -101,9 +101,9 @@ void LEDarray_disp_bin(unsigned int number)
 void LEDarray_disp_dec(unsigned int number)
 {
   unsigned int disp_val;
-  if (number >= 19) //19 slightly higher value so a return of lowest LDR value should be expected
+  if (number >= 10) //19 slightly higher value so a return of lowest LDR value should be expected
   {disp_val = 0b000000001;}
-  if (number >= 29) //20
+  if (number >= 20) //20
   {disp_val = 0b000000010;}
   if (number >=30) //30
   {disp_val = 0b000000100;}

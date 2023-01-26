@@ -27,7 +27,7 @@ void Interrupts_init(void)
 void __interrupt(high_priority) HighISR()
 {
     if(PIR2bits.C1IF){ 		//check the interrupt source
-    LATHbits.LATH3 = !LATHbits.LATH3; //toggle LED
+    //LATHbits.LATH3 = !LATHbits.LATH3; //toggle LED
 	PIR2bits.C1IF = 0; 						//clear the interrupt flag!
 	}
 	//add your ISR code here i.e. check the flag, do something (i.e. toggle an LED), clear the flag...

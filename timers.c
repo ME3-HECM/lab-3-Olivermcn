@@ -12,7 +12,7 @@ void Timer0_init(void)
     T0CON0bits.T016BIT=0;	//8bit mode	
 	
     // it's a good idea to initialise the timer registers so we know we are at 0
-    TMR0H=0;            //write High reg first, update happens when low reg is written to
+    TMR0H=255;            //write High reg first, update happens when low reg is written to
     TMR0L=0;
     T0CON0bits.T0EN=1;	//start the timer
 }
